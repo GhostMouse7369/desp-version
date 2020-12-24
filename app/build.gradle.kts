@@ -1,4 +1,4 @@
-import top.laoshuzi.dependencies.BuildConfig
+import top.laoshuzi.dependencies.AndroidBuildConfig
 import top.laoshuzi.dependencies.deps.*
 
 plugins {
@@ -7,6 +7,11 @@ plugins {
     kotlin("android.extensions")
     kotlin("kapt")
 }
+
+val signKeyAlias: String by project
+val signKeyPassword: String by project
+val signStoreFile: String by project
+val signStorePassword: String by project
 
 kapt {
     arguments {
@@ -19,37 +24,43 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    compileSdkVersion(BuildConfig.target_sdk)
+    compileSdkVersion(AndroidBuildConfig.target_sdk)
     defaultConfig {
-        applicationId = BuildConfig.application_id
-        minSdkVersion(BuildConfig.min_sdk)
-        targetSdkVersion(BuildConfig.target_sdk)
-        versionCode = BuildConfig.version_code
-        versionName = BuildConfig.version_name
-        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
-//        javaCompileOptions {
-//            annotationProcessorOptions {
-//                arguments = mapOf("AROUTER_MODULE_NAME" to project.name)
-//            }
-//        }
+        applicationId = AndroidBuildConfig.application_id
+        minSdkVersion(AndroidBuildConfig.min_sdk)
+        targetSdkVersion(AndroidBuildConfig.target_sdk)
+        versionCode = AndroidBuildConfig.version_code
+        versionName = AndroidBuildConfig.version_name
+        testInstrumentationRunner = AndroidBuildConfig.test_instrumentation_runner
+        consumerProguardFiles(AndroidBuildConfig.consumer_file)
+        multiDexEnabled = true
+    }
+    lintOptions {
+        isAbortOnError = false
     }
     signingConfigs {
         create("release") {
-            keyAlias = BuildConfig.sign_key_alias
-            keyPassword = BuildConfig.sign_key_password
-            storeFile = file(BuildConfig.sign_store_file)
-            storePassword = BuildConfig.sign_store_password
+            keyAlias = signKeyAlias
+            keyPassword = signKeyPassword
+            storeFile = file(signStoreFile)
+            storePassword = signStorePassword
         }
     }
     buildTypes {
         getByName("release") {
             signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                AndroidBuildConfig.proguard_file
+            )
         }
         getByName("debug") {
             signingConfig = signingConfigs.getByName("release")
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                AndroidBuildConfig.proguard_file
+            )
         }
     }
 }
