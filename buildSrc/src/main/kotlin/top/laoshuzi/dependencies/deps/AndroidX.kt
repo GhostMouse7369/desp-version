@@ -4,7 +4,7 @@ object AndroidX {
 
     val arch_core_version = "1.1.0"
     val lifecycle_version = "2.2.0"
-    val paging_version = "2.1.2"
+    val paging_version = "3.0.0-alpha10"
     val room_version = "2.2.5"
     val sqlite_version = "2.1.0"
     val navigation_version = "2.3.1"
