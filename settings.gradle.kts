@@ -1,2 +1,2 @@
-rootProject.name = "MyApplication"
+rootProject.name = "desp-version"
 include (":app")
