@@ -10,8 +10,8 @@ plugins {
 }
 
 group = "top.laoshuzi.android"
-version = AndroidBuildConfig.version_name
-val artifactId = "libtest"
+version = "0.1.0"
+//val artifactId = "libtest"
 
 val ziweiRepositoryDomainName: String by project
 val ziweiRepositoryUsername: String by project
@@ -26,8 +26,6 @@ android {
     defaultConfig {
         minSdk = AndroidBuildConfig.min_sdk
         targetSdk = AndroidBuildConfig.target_sdk
-//        versionCode = AndroidBuildConfig.version_code
-//        versionName = AndroidBuildConfig.version_name
         testInstrumentationRunner = AndroidBuildConfig.test_instrumentation_runner
         consumerProguardFiles(AndroidBuildConfig.consumer_file)
     }
@@ -52,7 +50,7 @@ afterEvaluate {
     publishing {
         publications {
             create<MavenPublication>("mavenAndroid") {
-                mavenAndroidPublication(project, artifactId = artifactId)
+                mavenAndroidPublication(project)
             }
         }
         repositories {
@@ -63,6 +61,7 @@ afterEvaluate {
                     ziweiRepositoryUsername,
                     ziweiRepositoryPassword
                 )
+                isAllowInsecureProtocol = true
             }
         }
     }

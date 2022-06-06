@@ -46,7 +46,6 @@ android {
         create("release") {
             keyAlias = signKeyAlias
             keyPassword = signKeyPassword
-//            storeFile = file("${project.rootDir}/${signStoreFile}")
             storeFile = file(signStoreFile)
             storePassword = signStorePassword
         }
@@ -80,7 +79,8 @@ dependencies {
     //tools
     implementation(deps(Common.core))
     implementation(deps(Utilcode.utilcodex))
-    implementation("top.laoshuzi.android:androidutils:0.1.1")
+    implementation("top.laoshuzi.android:androidutils:0.1.2")
+    implementation("top.laoshuzi.android:viewbindingutils:0.1.0")
 
     //test
 //    testImplementation(deps(Junit.junit))
@@ -102,7 +102,6 @@ dependencies {
     implementation(deps(AndroidX.constraint_layout))
 
     //lifecycle
-    implementation("top.laoshuzi.android:lifecycleutils:0.1.1")
     implementation(deps(AndroidX.lifecycle_livedata_ktx))
     implementation(deps(AndroidX.lifecycle_viewmodel_ktx))
     implementation(deps(AndroidX.lifecycle_reactivestreams_ktx))
