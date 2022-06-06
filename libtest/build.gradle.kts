@@ -1,4 +1,4 @@
-import top.laoshuzi.dependencies.AndroidBuildConfig
+import top.laoshuzi.dependencies.config.AndroidBuildConfig
 import top.laoshuzi.dependencies.deps.*
 import top.laoshuzi.dependencies.publish.MavenPublish.mavenAndroidPublication
 import top.laoshuzi.dependencies.publish.MavenPublish.mavenRepository
@@ -6,7 +6,6 @@ import top.laoshuzi.dependencies.publish.MavenPublish.mavenRepository
 plugins {
     id("com.android.library")
     kotlin("android")
-    kotlin("android.extensions")
     `maven-publish`
 }
 
@@ -20,15 +19,15 @@ val ziweiRepositoryPassword: String by project
 
 android {
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
-    compileSdkVersion(AndroidBuildConfig.target_sdk)
+    compileSdk = AndroidBuildConfig.target_sdk
     defaultConfig {
-        minSdkVersion(AndroidBuildConfig.min_sdk)
-        targetSdkVersion(AndroidBuildConfig.target_sdk)
-        versionCode = AndroidBuildConfig.version_code
-        versionName = AndroidBuildConfig.version_name
+        minSdk = AndroidBuildConfig.min_sdk
+        targetSdk = AndroidBuildConfig.target_sdk
+//        versionCode = AndroidBuildConfig.version_code
+//        versionName = AndroidBuildConfig.version_name
         testInstrumentationRunner = AndroidBuildConfig.test_instrumentation_runner
         consumerProguardFiles(AndroidBuildConfig.consumer_file)
     }

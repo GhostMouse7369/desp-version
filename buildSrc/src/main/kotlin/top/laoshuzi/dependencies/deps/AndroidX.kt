@@ -2,9 +2,11 @@ package top.laoshuzi.dependencies.deps
 
 object AndroidX {
 
+    val activity_version = "1.4.0"
+    val fragment_version = "1.4.1"
     val arch_core_version = "1.1.0"
     val lifecycle_version = "2.2.0"
-    val paging_version = "3.0.0-alpha10"
+    val paging_version = "3.1.1"
     val room_version = "2.2.5"
     val sqlite_version = "2.1.0"
     val navigation_version = "2.3.1"
@@ -17,7 +19,7 @@ object AndroidX {
     val cursoradapter_version = "1.0.0"
     val browser_version = "1.2.0"
     val customview_version = "1.1.0"
-    val material_version = "1.0.0-alpha07"
+    val material_version = "1.1.1"
     val documentfile_version = "1.0.1"
     val drawerlayout_version = "1.1.1"
     val exifinterface_version = "1.3.1"
@@ -53,6 +55,14 @@ object AndroidX {
     val test_espresso_version = "3.3.0"
 
     val android_material_version = "1.2.1"
+
+    val activity = Deps("androidx.activity", "activity", activity_version)
+    val activity_compose = Deps("androidx.activity", "activity-compose", activity_version)
+    val activity_ktx = Deps("androidx.activity", "activity-ktx", activity_version)
+
+    val fragment = Deps("androidx.fragment", "fragment", fragment_version)
+    val fragment_ktx = Deps("androidx.fragment", "fragment-ktx", fragment_version)
+    val fragment_testing = Deps("androidx.fragment", "fragment-testing", fragment_version)
 
     val arch_core_common = Deps("androidx.arch.core", "core-common", arch_core_version)
     val arch_core = Deps("androidx.arch.core", "core", arch_core_version)
@@ -147,7 +157,7 @@ object AndroidX {
 
     val loader = Deps("androidx.loader", "loader", loader_version)
 
-    val localbroadcastmanager =  Deps("androidx.localbroadcastmanager", "localbroadcastmanager", localbroadcastmanager_version)
+    val localbroadcastmanager = Deps("androidx.localbroadcastmanager", "localbroadcastmanager", localbroadcastmanager_version)
 
     val media = Deps("androidx.media", "media", media_version)
 
@@ -206,7 +216,7 @@ object AndroidX {
     val vectordrawable_animated = Deps("androidx.vectordrawable", "vectordrawable-animated", vectordrawable_version)
 
     val constraint_layout = Deps("androidx.constraintlayout", "constraintlayout", constraint_layout_version)
-    val constraint_layout_solvert =  Deps("androidx.constraintlayout", "constraintlayout-solvert", constraint_layout_version)
+    val constraint_layout_solvert = Deps("androidx.constraintlayout", "constraintlayout-solvert", constraint_layout_version)
 
     val test_core = Deps("androidx.test", "core", test_version)
     val test_core_ktx = Deps("androidx.test", "core-ktx", test_version)

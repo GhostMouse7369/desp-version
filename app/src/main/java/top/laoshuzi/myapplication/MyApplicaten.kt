@@ -13,13 +13,13 @@ import io.reactivex.plugins.RxJavaPlugins
 import com.blankj.utilcode.util.Utils
 
 
-class MyApplicaten : Application() {
+class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
         // UtilCode
-        Utils.init(applicationContext)
+        Utils.init(this)
 
         // ARouter
         if (AppUtils.isAppDebug()) {
@@ -30,7 +30,7 @@ class MyApplicaten : Application() {
 
         // Koin
         startKoin {
-            androidContext(this@MyApplicaten)
+            androidContext(this@MyApplication)
             modules(
                 listOf(
                     viewModelModule,

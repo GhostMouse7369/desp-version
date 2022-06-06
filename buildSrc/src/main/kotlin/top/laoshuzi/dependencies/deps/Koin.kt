@@ -2,22 +2,21 @@ package top.laoshuzi.dependencies.deps
 
 object Koin {
 
-    val koin_version = "2.0.1"
+    val koin_version = "3.2.0"
 
-    val core = Deps("org.koin", "koin-core", koin_version)
-    val core_ext = Deps("org.koin", "koin-core-ext", koin_version)
-    val test = Deps("org.koin", "koin-test", koin_version)
-    val java = Deps("org.koin", "koin-java", koin_version)
+    val core = Deps("io.insert-koin", "koin-core", koin_version)
+    val test = Deps("io.insert-koin", "koin-test", koin_version)
 
-    val android = Deps("org.koin", "koin-android", koin_version)
-    val android_ext = Deps("org.koin", "koin-android-ext", koin_version)
-    val android_scope = Deps("org.koin", "koin-android-scope", koin_version)
-    val android_viewmodel = Deps("org.koin", "koin-android-viewmodel", koin_version)
+    val test_junit4 = Deps("io.insert-koin", "koin-test-junit4", koin_version)
+    val test_junit5 = Deps("io.insert-koin", "koin-test-junit5", koin_version)
 
-    val androidx_ext = Deps("org.koin", "koin-androidx-ext", koin_version)
-    val androidx_scope = Deps("org.koin", "koin-androidx-scope", koin_version)
-    val androidx_viewmodel = Deps("org.koin", "koin-androidx-viewmodel", koin_version)
+    val android = Deps("io.insert-koin", "koin-android", koin_version)
+    val androidx_compat = Deps("io.insert-koin", "koin-android-compat", koin_version)
+    val androidx_workmanager = Deps("io.insert-koin", "koin-androidx-workmanager", koin_version)
+    val androidx_navigation = Deps("io.insert-koin", "koin-androidx-navigation", koin_version)
+    val androidx_compose = Deps("io.insert-koin", "koin-androidx-compose", koin_version)
 
-    val ktor = Deps("org.koin", "koin-ktor", koin_version)
+    val ktor = Deps("io.insert-koin", "koin-ktor", koin_version)
+    val logger_slf4j = Deps("io.insert-koin", "koin-logger-slf4j", koin_version)
 
 }

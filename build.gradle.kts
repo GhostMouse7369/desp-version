@@ -1,21 +1,24 @@
 buildscript {
     repositories {
         google()
-        jcenter()
         gradlePluginPortal()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:4.1.1")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10")
-//        classpath(BuildTools.gradle.gradleString())
-//        classpath(Kotlin.kotlin_gradle.gradleString())
+        classpath(top.laoshuzi.dependencies.deps.BuildTools.android_gradle_build_plugin)
+        classpath(top.laoshuzi.dependencies.deps.BuildTools.kotlin_gradle_build_plugin)
     }
 }
+
+val ziweiRepositoryDomainName: String by project
 
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+        maven("https://jitpack.io")
+        maven("${ziweiRepositoryDomainName}repository/maven-public/") {
+            isAllowInsecureProtocol = true
+        }
     }
 }
 
