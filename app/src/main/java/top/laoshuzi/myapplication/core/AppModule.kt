@@ -19,7 +19,7 @@ val remoteModule = module {
 
 val localModule = module {
 
-    single { AppDatabase.database() }
+    single { AppDatabase.database("app_db") }
 
 //    single { get<AppDatabase>().userAccountDao() }
 }

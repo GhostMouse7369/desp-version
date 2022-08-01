@@ -20,11 +20,11 @@ import top.laoshuzi.myapplication.core.database.dao.UserDao
 abstract class AppDatabase : RoomDatabase() {
 
     companion object {
-        fun database(): AppDatabase {
+        fun database(dbName: String): AppDatabase {
             return Room.databaseBuilder(
                 Utils.getApp(),
                 AppDatabase::class.java,
-                "genghe_db"
+                dbName
             ).build()
         }
     }

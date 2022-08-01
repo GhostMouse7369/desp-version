@@ -168,6 +168,7 @@ dependencies {
 //    implementation("top.laoshuzi.android:rvbaseadapter:0.1.0")
 //    implementation("top.laoshuzi.android:rvbaseadapter-paging:0.1.0")
 //    implementation(deps(Fragmentation.fragmentationx_xuexuan))
+//    implementation("com.github.li-xiaojun:XPopup:2.8.3")
     implementation(deps(Adapter.base_recycler_view_adapter))
     implementation(deps(Background.background_libraryx))
 }
