@@ -3,9 +3,9 @@ package top.laoshuzi.dependencies.deps
 object Springframework {
 
     val spring_version = "5.4.5"
-    val spring_boot_version = "2.5.4"
-    val spring_cloud_version = "Hoxton.SR12"
-    val spring_dependency_management_version = "1.0.11.RELEASE"
+    val spring_boot_version = "3.0.0"
+    val spring_cloud_version = "2022.0.0-M5"
+    val spring_dependency_management_version = "1.1.0"
 
     val spring_context =
         Deps("org.springframework", "spring-context", null)

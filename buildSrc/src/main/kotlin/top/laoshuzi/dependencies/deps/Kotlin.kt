@@ -2,7 +2,7 @@ package top.laoshuzi.dependencies.deps
 
 object Kotlin {
 
-    val kotlin_version = "1.6.10"
+    val kotlin_version = "1.7.21"
 
     val stdlib_jdk8 = Deps("org.jetbrains.kotlin", "kotlin-stdlib-jdk8", kotlin_version)
     val stdlib_js = Deps("org.jetbrains.kotlin", "kotlin-stdlib-js", kotlin_version)

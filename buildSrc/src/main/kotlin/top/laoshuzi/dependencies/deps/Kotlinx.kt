@@ -8,7 +8,7 @@ object Kotlinx {
     val kotlinx_cli_version = "0.3.5"
 
     //    val kotlinx_io_version = "x.x.x"
-    val kotlinx_coroutines_version = "1.4.0"
+    val kotlinx_coroutines_version = "1.6.2"
 
     val kotlinx_datetime =
         Deps("org.jetbrains.kotlinx", "kotlinx-datetime", kotlinx_datetime_version)
