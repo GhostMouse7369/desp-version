@@ -55,7 +55,7 @@ object MavenPublish {
         project: Project,
         domainName: String,
         userName: String,
-        password: String,
+        password: String
     ) {
         val releasesRepoUrl = "${domainName}/repository/maven-releases/"
         val snapshotsRepoUrl = "${domainName}/repository/maven-snapshots/"

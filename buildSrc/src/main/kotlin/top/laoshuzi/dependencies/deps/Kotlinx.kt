@@ -2,7 +2,28 @@ package top.laoshuzi.dependencies.deps
 
 object Kotlinx {
 
+    val kotlinx_datetime_version = "0.4.0"
+    val kotlinx_collections_immutable_version = "0.3.5"
+    val kotlinx_serialization_version = "1.4.0"
+    val kotlinx_cli_version = "0.3.5"
+
+    //    val kotlinx_io_version = "x.x.x"
     val kotlinx_coroutines_version = "1.4.0"
+
+    val kotlinx_datetime =
+        Deps("org.jetbrains.kotlinx", "kotlinx-datetime", kotlinx_datetime_version)
+
+    val kotlinx_collections_immutable =
+        Deps("org.jetbrains.kotlinx", "kotlinx-collections-immutable", kotlinx_collections_immutable_version)
+
+    val kotlinx_serialization_json =
+        Deps("org.jetbrains.kotlinx", "kotlinx-serialization-json", kotlinx_serialization_version)
+
+    val kotlinx_cli =
+        Deps("org.jetbrains.kotlinx", "kotlinx-cli", kotlinx_cli_version)
+
+//    val kotlinx_io =
+//        Deps("org.jetbrains.kotlinx", "kotlinx-io-jvm", kotlinx_io_version)
 
     val kotlinx_coroutines_core =
         Deps("org.jetbrains.kotlinx", "kotlinx-coroutines-core", kotlinx_coroutines_version)
