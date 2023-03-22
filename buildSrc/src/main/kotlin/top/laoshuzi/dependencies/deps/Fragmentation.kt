@@ -5,7 +5,7 @@ object Fragmentation {
     //    val fragmentation_version = "1.3.8"
 //    val fragmentationx_version = "1.0.1"
 
-    val fragmentationx_version = "1.0.2"
+    val fragmentationx_version = "1.0.3"
 
     val fragmentation_xuexuan_version = "1.0.6"
     val fragmentationx_xuexuan_version = "1.0.6"

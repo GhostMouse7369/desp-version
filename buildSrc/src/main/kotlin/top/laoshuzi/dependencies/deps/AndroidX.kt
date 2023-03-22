@@ -38,7 +38,7 @@ object AndroidX {
     val legacy_version = "1.0.0"
     val preference_version = "1.1.1"
     val print_version = "1.0.0"
-    val recyclerview_version = "1.0.0"
+    val recyclerview_version = "1.2.1"
     val annotation_version = "1.1.0"
     val core_version = "1.3.2"
     val emoji_version = "1.1.0"
