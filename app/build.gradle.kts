@@ -153,7 +153,7 @@ dependencies {
     implementation(deps(Okhttp.okhttp_logging_interceptor))
 
     //json
-    implementation(deps(Fastjson.fastjson))
+    implementation(deps(Json.fastjson))
     implementation(deps(Jackson.jackson_annotations))
     implementation(deps(Jackson.jackson_databind))
 
