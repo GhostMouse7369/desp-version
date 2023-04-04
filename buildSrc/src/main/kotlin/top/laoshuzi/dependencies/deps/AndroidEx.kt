@@ -2,26 +2,37 @@ package top.laoshuzi.dependencies.deps
 
 object AndroidEx {
 
+    val android_auto_size_version = "v1.2.1"
     val arouter_api_version = "1.5.2"
     val arouter_compiler_version = "1.5.2"
     val arouter_register_version = "1.0.2"
     val background_libraryx_version = "1.7.3"
-    val base_recycler_view_adapter_version = "3.0.7"
+    val consecutive_scroller_version = "4.6.3"
     val fragmentationx_version = "1.0.3"
     val fragmentationx_xuexuan_version = "1.0.6"
     val glide_version = "4.9.0"
     val live_event_busx_version = "1.8.0"
+    val recycler_view_base_adapter_version = "3.0.7"
     val retrofit_version = "2.9.0"
+    val smart_refresh_layout_version = "2.9.0"
     val utilcodex_version = "1.31.0"
+    val xpopup_version = "2.8.3"
 
 
-    val api = Deps("com.alibaba", "arouter-api", arouter_api_version)
-    val compiler = Deps("com.alibaba", "arouter-compiler", arouter_compiler_version)
-    val register = Deps("com.alibaba", "arouter-register", arouter_register_version)
+    val android_auto_size = Deps("com.github.JessYanCoding", "AndroidAutoSize", android_auto_size_version)
+
+    val arouter_api = Deps("com.alibaba", "arouter-api", arouter_api_version)
+    val arouter_compiler = Deps("com.alibaba", "arouter-compiler", arouter_compiler_version)
+    val arouter_register = Deps("com.alibaba", "arouter-register", arouter_register_version)
 
     val background_libraryx = Deps("com.github.JavaNoober.BackgroundLibrary", "libraryx", background_libraryx_version)
 
-    val base_recycler_view_adapter = Deps("com.github.CymChad", "BaseRecyclerViewAdapterHelper", base_recycler_view_adapter_version)
+    val consecutive_scroller = Deps("com.github.donkingliang", "ConsecutiveScroller", consecutive_scroller_version)
+
+    val recycler_view_base_adapter = Deps("com.github.CymChad", "BaseRecyclerViewAdapterHelper", recycler_view_base_adapter_version)
+
+    val smart_refresh_layout = Deps("com.scwang.smartrefresh", "SmartRefreshLayout", smart_refresh_layout_version)
+    val smart_refresh_layout_header = Deps("com.scwang.smartrefresh", "SmartRefreshHeader", smart_refresh_layout_version)
 
     val fragmentationx = Deps("top.laoshuzi.android", "fragmentation", fragmentationx_version)
     val fragmentationx_core = Deps("top.laoshuzi.android", "fragmentation-core", fragmentationx_version)
@@ -54,5 +65,6 @@ object AndroidEx {
     val retrofit_mock = Deps("com.squareup.retrofit2", "retrofit-mock", retrofit_version)
 
     val utilcodex = Deps("com.blankj", "utilcodex", utilcodex_version)
+    val xpopup = Deps("com.github.li-xiaojun", "XPopup", xpopup_version)
 
 }
