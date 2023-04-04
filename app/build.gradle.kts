@@ -1,5 +1,7 @@
 import top.laoshuzi.dependencies.config.AndroidBuildConfig
 import top.laoshuzi.dependencies.deps.*
+import java.util.Properties
+import java.io.FileInputStream
 
 plugins {
     id("com.android.application")
@@ -7,10 +9,9 @@ plugins {
     kotlin("kapt")
 }
 
-val signKeyAlias: String by project
-val signKeyPassword: String by project
-val signStoreFile: String by project
-val signStorePassword: String by project
+val keystoreProperties = Properties().apply {
+    load(FileInputStream(rootProject.file("keystore.properties")))
+}
 
 kapt {
     arguments {
@@ -32,39 +33,64 @@ android {
         versionName = AndroidBuildConfig.version_name
         testInstrumentationRunner = AndroidBuildConfig.test_instrumentation_runner
         multiDexEnabled = true
+//        ndk {
+//            abiFilters.addAll(mutableSetOf("armeabi", "armeabi-v7a", "armeabi-v8a", "x86"))
+//        }
     }
     lint {
-        isAbortOnError = false
+        abortOnError = false
     }
-    buildFeatures {
-        viewBinding = true
+    viewBinding {
+        enable = true
     }
     dataBinding {
-        isEnabled = true
+        enable = true
     }
     signingConfigs {
         create("release") {
-            keyAlias = signKeyAlias
-            keyPassword = signKeyPassword
-            storeFile = file(signStoreFile)
-            storePassword = signStorePassword
+            storeFile = file(keystoreProperties["signStoreFile"] as String)
+            storePassword = keystoreProperties["signStorePassword"] as String
+            keyAlias = keystoreProperties["signKeyAlias"] as String
+            keyPassword = keystoreProperties["signKeyPassword"] as String
         }
     }
     buildTypes {
         getByName("release") {
-            signingConfig = signingConfigs.getByName("release")
+            isDebuggable = false
             isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                AndroidBuildConfig.proguard_file
+                getDefaultProguardFile("proguard-android-optimize.txt"), AndroidBuildConfig.proguard_file
             )
         }
         getByName("debug") {
+            isDebuggable = true
             signingConfig = signingConfigs.getByName("release")
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                AndroidBuildConfig.proguard_file
+                getDefaultProguardFile("proguard-android-optimize.txt"), AndroidBuildConfig.proguard_file
             )
+        }
+    }
+    flavorDimensions += "version"
+    productFlavors {
+        create("dev") {
+            dimension = "version"
+            applicationId = "${AndroidBuildConfig.application_id}.test"
+            manifestPlaceholders["app_name"] = "医院社区-测试"
+            resValue("string", "api_base_url", "http://47.114.72.255:8080/medical_waste-0.0.1/")
+        }
+        create("stable") {
+            dimension = "version"
+            manifestPlaceholders["app_name"] = "医院社区"
+            resValue("string", "api_base_url", "http://223.151.53.85:9090/medical_waste-0.0.1/")
+        }
+    }
+
+    applicationVariants.all {
+        val variant = this
+        outputs.map { it as com.android.build.gradle.internal.api.BaseVariantOutputImpl }.forEach { output ->
+            val outputFileName = "app-${variant.baseName}-${variant.versionName}_${variant.versionCode}.apk"
+            output.outputFileName = outputFileName
         }
     }
 }
@@ -77,7 +103,6 @@ dependencies {
     implementation(deps(Kotlin.stdlib_jdk8))
 
     //tools
-    implementation(deps(Common.core))
     implementation(deps(Utilcode.utilcodex))
     implementation("top.laoshuzi.android:androidutils:0.1.2")
     implementation("top.laoshuzi.android:viewbindingutils:0.1.0")
@@ -91,21 +116,21 @@ dependencies {
     implementation(deps(Koin.android))
 
     //component
+    implementation(deps(Android.android_material))
     implementation(deps(AndroidX.multidex))
-    implementation(deps(AndroidX.android_material))
     implementation(deps(AndroidX.legacy_support_v4))
     implementation(deps(AndroidX.activity))
     implementation(deps(AndroidX.fragment))
     implementation(deps(AndroidX.appcompat))
     implementation(deps(AndroidX.recyclerview))
     implementation(deps(AndroidX.cardview))
-    implementation(deps(AndroidX.constraint_layout))
+    implementation(deps(AndroidX.constraintlayout))
 
     //lifecycle
-    implementation(deps(AndroidX.lifecycle_livedata_ktx))
     implementation(deps(AndroidX.lifecycle_viewmodel_ktx))
     implementation(deps(AndroidX.lifecycle_reactivestreams_ktx))
-    implementation(deps(AndroidX.lifecycle_extensions))
+//    implementation(deps(AndroidX.lifecycle_livedata_ktx))
+//    implementation(deps(AndroidX.lifecycle_extensions))
 //    kapt(deps(AndroidX.lifecycle_compiler))
 
     //room
@@ -116,8 +141,8 @@ dependencies {
     kapt(deps(AndroidX.room_compiler))
 
     //paging
-    implementation(deps(AndroidX.paging_runtime_ktx))
-    implementation(deps(AndroidX.paging_rxjava2_ktx))
+    implementation(deps(AndroidX.paging_runtime))
+//    implementation(deps(AndroidX.paging_rxjava2))
 
     //navigation
     implementation(deps(AndroidX.navigation_fragment_ktx))
@@ -150,7 +175,7 @@ dependencies {
 //    kapt(deps(ReactiveX.rx_http_compiler))\
 
     //bus
-    implementation(deps(LiveEventBus.live_event_busx))
+//    implementation(deps(LiveEventBus.live_event_busx))
 
     //retrofit
 //    implementation("top.laoshuzi.android:retrofitutils:0.1.2")
