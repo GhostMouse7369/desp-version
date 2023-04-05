@@ -14,7 +14,7 @@ object AndroidEx {
     val live_event_busx_version = "1.8.0"
     val recycler_view_base_adapter_version = "3.0.7"
     val retrofit_version = "2.9.0"
-    val smart_refresh_layout_version = "2.9.0"
+    val smart_refresh_layout_version = "2.0.5"
     val utilcodex_version = "1.31.0"
     val xpopup_version = "2.8.3"
 
@@ -31,8 +31,14 @@ object AndroidEx {
 
     val recycler_view_base_adapter = Deps("com.github.CymChad", "BaseRecyclerViewAdapterHelper", recycler_view_base_adapter_version)
 
-    val smart_refresh_layout = Deps("com.scwang.smartrefresh", "SmartRefreshLayout", smart_refresh_layout_version)
-    val smart_refresh_layout_header = Deps("com.scwang.smartrefresh", "SmartRefreshHeader", smart_refresh_layout_version)
+    val smart_refresh_layout_kernel = Deps("io.github.scwang90", "refresh-layout-kernel", smart_refresh_layout_version)
+    val smart_refresh_layout_header_classics = Deps("io.github.scwang90", "refresh-header-classics", smart_refresh_layout_version)
+    val smart_refresh_layout_header_radar = Deps("io.github.scwang90", "refresh-header-radar", smart_refresh_layout_version)
+    val smart_refresh_layout_header_falsify = Deps("io.github.scwang90", "refresh-header-falsify", smart_refresh_layout_version)
+    val smart_refresh_layout_header_material = Deps("io.github.scwang90", "refresh-header-material", smart_refresh_layout_version)
+    val smart_refresh_layout_header_two_level = Deps("io.github.scwang90", "refresh-header-two-level", smart_refresh_layout_version)
+    val smart_refresh_layout_footer_ball = Deps("io.github.scwang90", "refresh-footer-ball", smart_refresh_layout_version)
+    val smart_refresh_layout_footer_classics = Deps("io.github.scwang90", "refresh-footer-classics", smart_refresh_layout_version)
 
     val fragmentationx = Deps("top.laoshuzi.android", "fragmentation", fragmentationx_version)
     val fragmentationx_core = Deps("top.laoshuzi.android", "fragmentation-core", fragmentationx_version)
