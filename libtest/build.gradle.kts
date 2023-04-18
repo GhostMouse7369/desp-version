@@ -25,7 +25,6 @@ android {
     compileSdk = AndroidBuildConfig.target_sdk
     defaultConfig {
         minSdk = AndroidBuildConfig.min_sdk
-        targetSdk = AndroidBuildConfig.target_sdk
         testInstrumentationRunner = AndroidBuildConfig.test_instrumentation_runner
         consumerProguardFiles(AndroidBuildConfig.consumer_file)
     }

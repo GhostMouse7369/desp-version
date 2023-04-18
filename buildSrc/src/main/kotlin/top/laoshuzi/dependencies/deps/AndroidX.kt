@@ -227,6 +227,8 @@ object AndroidX {
 
     val lifecycle_viewmodel = Deps("androidx.lifecycle", "lifecycle-viewmodel", lifecycle_version)
     val lifecycle_viewmodel_ktx = Deps("androidx.lifecycle", "lifecycle-viewmodel-ktx", lifecycle_version)
+    val lifecycle_livedata = Deps("androidx.lifecycle", "lifecycle-livedata", lifecycle_version)
+    val lifecycle_livedata_ktx = Deps("androidx.lifecycle", "lifecycle-livedata-ktx", lifecycle_version)
     val lifecycle_compose = Deps("androidx.lifecycle", "lifecycle-compose", lifecycle_version)
     val lifecycle_runtime = Deps("androidx.lifecycle", "lifecycle-runtime", lifecycle_version)
     val lifecycle_runtime_ktx = Deps("androidx.lifecycle", "lifecycle-runtime-ktx", lifecycle_version)
@@ -240,8 +242,6 @@ object AndroidX {
     val lifecycle_runtime_testing = Deps("androidx.lifecycle", "lifecycle-runtime-testing", lifecycle_version)
 //    val lifecycle_common = Deps("androidx.lifecycle", "lifecycle-common", lifecycle_version)
 //    val lifecycle_extensions = Deps("androidx.lifecycle", "lifecycle-extensions", lifecycle_version)
-//    val lifecycle_livedata = Deps("androidx.lifecycle", "lifecycle-livedata", lifecycle_version)
-//    val lifecycle_livedata_ktx = Deps("androidx.lifecycle", "lifecycle-livedata-ktx", lifecycle_version)
 //    val lifecycle_livedata_core = Deps("androidx.lifecycle", "lifecycle-livedata-core", lifecycle_version)
 //    val lifecycle_livedata_core_ktx = Deps("androidx.lifecycle", "lifecycle-livedata-core-ktx", lifecycle_version)
 
