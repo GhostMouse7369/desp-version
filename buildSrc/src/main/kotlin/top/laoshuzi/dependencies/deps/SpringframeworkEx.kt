@@ -3,7 +3,7 @@ package top.laoshuzi.dependencies.deps
 /**
  * Created by laoshuzi on 2023/4/4.
  */
-class SpringframeworkEx {
+object SpringframeworkEx {
 
     val mybatis_plus_version = "3.2.0"
     val swagger_version = "2.9.2"
