@@ -76,13 +76,13 @@ android {
         create("dev") {
             dimension = "version"
             applicationId = "${AndroidBuildConfig.application_id}.test"
-            manifestPlaceholders["app_name"] = "医院社区-测试"
-            resValue("string", "api_base_url", "http://47.114.72.255:8080/medical_waste-0.0.1/")
+            manifestPlaceholders["app_name"] = "版本依赖-测试"
+            resValue("string", "api_base_url", "http://www.qncxin.com")
         }
         create("stable") {
             dimension = "version"
-            manifestPlaceholders["app_name"] = "医院社区"
-            resValue("string", "api_base_url", "http://223.151.53.85:9090/medical_waste-0.0.1/")
+            manifestPlaceholders["app_name"] = "版本依赖"
+            resValue("string", "api_base_url", "http://www.qncxin.com")
         }
     }
 
@@ -101,11 +101,14 @@ dependencies {
 
     //kotlin
     implementation(deps(Kotlin.stdlib_jdk8))
+    implementation(deps(Kotlinx.kotlinx_coroutines_android))
+//    implementation(deps(Kotlinx.kotlinx_coroutines_rx2))
 
     //tools
-    implementation(deps(Utilcode.utilcodex))
-    implementation("top.laoshuzi.android:androidutils:0.1.2")
+    implementation(deps(AndroidEx.utilcodex))
+    implementation("top.laoshuzi.android:androidutils:0.1.4")
     implementation("top.laoshuzi.android:viewbindingutils:0.1.0")
+//    implementation("cn.hutool:hutool-all:5.4.4")
 
     //test
 //    testImplementation(deps(Junit.junit))
@@ -114,6 +117,21 @@ dependencies {
 
     //koin
     implementation(deps(Koin.android))
+
+    //json
+    implementation(deps(Json.fastjson))
+    implementation(deps(Json.jackson_annotations))
+    implementation(deps(Json.jackson_databind))
+
+    //rxjava
+    implementation("top.laoshuzi.android:rxutils:0.1.2")
+    implementation(deps(ReactiveX.rx_java))
+    implementation(deps(ReactiveX.rx_kotlin))
+    implementation(deps(ReactiveX.rx_android))
+
+    //okhttp
+    implementation(deps(Okhttp.okhttp))
+    implementation(deps(Okhttp.okhttp_logging_interceptor))
 
     //component
     implementation(deps(Android.android_material))
@@ -125,8 +143,10 @@ dependencies {
     implementation(deps(AndroidX.recyclerview))
     implementation(deps(AndroidX.cardview))
     implementation(deps(AndroidX.constraintlayout))
+    implementation(deps(AndroidX.viewpager2))
 
     //lifecycle
+    implementation("top.laoshuzi.android:lifecycleutils:0.1.5")
     implementation(deps(AndroidX.lifecycle_viewmodel_ktx))
     implementation(deps(AndroidX.lifecycle_reactivestreams_ktx))
 //    implementation(deps(AndroidX.lifecycle_livedata_ktx))
@@ -135,54 +155,47 @@ dependencies {
 
     //room
     implementation(deps(AndroidX.room_runtime))
-    implementation(deps(AndroidX.room_rxjava2))
     implementation(deps(AndroidX.room_ktx))
-//    implementation(deps(AndroidX.room_guava))
     kapt(deps(AndroidX.room_compiler))
 
+    //datastore
+    implementation(deps(AndroidX.datastore))
+    implementation(deps(AndroidX.datastore_preferences))
+
     //paging
-    implementation(deps(AndroidX.paging_runtime))
+//    implementation(deps(AndroidX.paging_runtime))
 //    implementation(deps(AndroidX.paging_rxjava2))
 
     //navigation
     implementation(deps(AndroidX.navigation_fragment_ktx))
     implementation(deps(AndroidX.navigation_ui_ktx))
 
-    //okhttp
-    implementation(deps(Okhttp.okhttp))
-    implementation(deps(Okhttp.okhttp_logging_interceptor))
-
-    //json
-    implementation(deps(Json.fastjson))
-    implementation(deps(Jackson.jackson_annotations))
-    implementation(deps(Jackson.jackson_databind))
-
-    //glide
-    implementation(deps(Glide.glide))
-    kapt(deps(Glide.glide_compiler))
+    //bus
+//    implementation(deps(LiveEventBus.live_event_busx))
 
     //arouter
     implementation("top.laoshuzi.android:arouterutils:0.1.3")
-    implementation(deps(Arouter.api))
-    kapt(deps(Arouter.compiler))
-
-    //rxjava
-    implementation("top.laoshuzi.android:rxutils:0.1.2")
-    implementation(deps(ReactiveX.rx_java))
-    implementation(deps(ReactiveX.rx_kotlin))
-    implementation(deps(ReactiveX.rx_android))
-//    implementation(deps(ReactiveX.rx_http))
-//    kapt(deps(ReactiveX.rx_http_compiler))\
+    implementation(deps(AndroidEx.arouter_api))
+    kapt(deps(AndroidEx.arouter_compiler))
 
     //bus
 //    implementation(deps(LiveEventBus.live_event_busx))
 
+    //ktor
+    implementation(deps(Ktor.client_okhttp))
+    implementation(deps(Ktor.client_gson))
+    implementation(deps(Ktor.client_content_negotiation))
+//    implementation(deps(Ktor.client_auth))
+//    implementation(deps(Ktor.client_logging))
+
     //retrofit
 //    implementation("top.laoshuzi.android:retrofitutils:0.1.2")
-    implementation(deps(Retrofit.retrofit))
-    implementation(deps(Retrofit.adapter_rxjava2))
-    implementation(deps(Retrofit.converter_gson))
-//    implementation(deps(Retrofit.converter_scalars))
+    implementation(deps(AndroidEx.retrofit))
+    implementation(deps(AndroidEx.retrofit_converter_gson))
+
+    //glide
+    implementation(deps(AndroidEx.glide))
+    kapt(deps(AndroidEx.glide_compiler))
 
 
     //view
@@ -192,8 +205,13 @@ dependencies {
 //    implementation("top.laoshuzi.android:dialogutils:0.1.0")
 //    implementation("top.laoshuzi.android:rvbaseadapter:0.1.0")
 //    implementation("top.laoshuzi.android:rvbaseadapter-paging:0.1.0")
-//    implementation(deps(Fragmentation.fragmentationx_xuexuan))
-//    implementation("com.github.li-xiaojun:XPopup:2.8.3")
-    implementation(deps(Adapter.base_recycler_view_adapter))
-    implementation(deps(Background.background_libraryx))
+    //
+    implementation(deps(AndroidEx.fragmentationx))
+    implementation(deps(AndroidEx.recycler_view_base_adapter))
+    implementation(deps(AndroidEx.background_libraryx))
+    implementation(deps(AndroidEx.android_auto_size))
+    implementation(deps(AndroidEx.consecutive_scroller))
+    implementation(deps(AndroidEx.smart_refresh_layout_kernel))
+    implementation(deps(AndroidEx.smart_refresh_layout_header_classics))
+    implementation(deps(AndroidEx.xpopup))
 }
