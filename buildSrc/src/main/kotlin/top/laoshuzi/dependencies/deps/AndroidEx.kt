@@ -10,7 +10,7 @@ object AndroidEx {
     val consecutive_scroller_version = "4.6.3"
     val fragmentationx_version = "1.0.3"
     val fragmentationx_xuexuan_version = "1.0.6"
-    val glide_version = "4.9.0"
+    val glide_version = "4.13.2"
     val live_event_busx_version = "1.8.0"
     val recycler_view_base_adapter_version = "3.0.7"
     val retrofit_version = "2.9.0"

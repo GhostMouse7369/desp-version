@@ -1,6 +1,7 @@
 buildscript {
     repositories {
         google()
+        mavenCentral()
         gradlePluginPortal()
     }
     dependencies {
@@ -16,7 +17,7 @@ allprojects {
         google()
         mavenCentral()
         maven("https://jitpack.io")
-        maven("${ziweiRepositoryDomainName}repository/maven-public/") {
+        maven("${ziweiRepositoryDomainName}/repository/maven-public/") {
             isAllowInsecureProtocol = true
         }
     }
