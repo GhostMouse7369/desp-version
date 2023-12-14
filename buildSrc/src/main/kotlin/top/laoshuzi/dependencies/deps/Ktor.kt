@@ -2,7 +2,7 @@ package top.laoshuzi.dependencies.deps
 
 object Ktor {
 
-    val ktor_version = "2.1.3"
+    val ktor_version = "2.3.7"
 
 
     //Ktor IO
@@ -22,11 +22,8 @@ object Ktor {
     val websockets = Deps("io.ktor", "ktor-websockets", ktor_version)
     val websockets_jvm = Deps("io.ktor", "ktor-websockets-jvm", ktor_version)
 
-    //Ktor Client
-    val client = Deps("io.ktor", "ktor-client", ktor_version)
-
-    //Ktor Server
-    val server = Deps("io.ktor", "ktor-server", ktor_version)
+    //Ktor Auth
+    val auth = Deps("io.ktor", "ktor-auth", ktor_version)
 
     //Ktor Serialization
     val serialization = Deps("io.ktor", "ktor-serialization", ktor_version)
@@ -36,8 +33,11 @@ object Ktor {
     val serialization_kotlinx_xml = Deps("io.ktor", "ktor-serialization-kotlinx-xml", ktor_version)
     val serialization_kotlinx_cbor = Deps("io.ktor", "ktor-serialization-kotlinx-cbor", ktor_version)
 
-    //Ktor Auth
-    val auth = Deps("io.ktor", "ktor-auth", ktor_version)
+    //Ktor Client
+    val client = Deps("io.ktor", "ktor-client", ktor_version)
+
+    //Ktor Server
+    val server = Deps("io.ktor", "ktor-server", ktor_version)
 
     //Ktor Client Core
     val client_core = Deps("io.ktor", "ktor-client-core", ktor_version)
@@ -120,6 +120,7 @@ object Ktor {
     //Ktor Client Mock
     val client_mock = Deps("io.ktor", "ktor-client-mock", ktor_version)
 
+
     //Ktor Server Core
     val server_core = Deps("io.ktor", "ktor-server-core", ktor_version)
     val server_core_jvm = Deps("io.ktor", "ktor-server-core-jvm", ktor_version)
@@ -127,7 +128,55 @@ object Ktor {
     //Ktor Server Netty
     val server_netty = Deps("io.ktor", "ktor-server-netty", ktor_version)
 
+    //Ktor Server Websockets
+    val server_websockets = Deps("io.ktor", "ktor-server-websockets", ktor_version)
+
     //Ktor Server CIO
     val server_cio = Deps("io.ktor", "ktor-server-cio", ktor_version)
+
+    //Ktor Server Auth
+    val server_auth = Deps("io.ktor", "ktor-server-auth", ktor_version)
+
+    //Ktor Server Auth JWT
+    val server_auth_jwt = Deps("io.ktor", "ktor-server-auth-jwt", ktor_version)
+
+    //Ktor Server Auth LDAP
+    val server_auth_ldap = Deps("io.ktor", "ktor-server-auth-ldap", ktor_version)
+
+    //Ktor Server Sessions
+    val server_sessions = Deps("io.ktor", "ktor-server-sessions", ktor_version)
+
+    //Ktor Server Content Negotiation
+    val server_content_negotiation = Deps("io.ktor", "ktor-server-content-negotiation", ktor_version)
+
+    //Ktor Server Cors
+    val server_cors = Deps("io.ktor", "ktor-server-cors", ktor_version)
+
+    //Ktor Server Html Builder
+    val server_html_builder = Deps("io.ktor", "ktor-server-html-builder", ktor_version)
+
+    //Ktor Server Locations
+    val server_locations = Deps("io.ktor", "ktor-server-locations", ktor_version)
+
+    //Ktor Server Webjars
+    val server_webjars = Deps("io.ktor", "ktor-server-webjars", ktor_version)
+
+    //Ktor Server Auto Head Response
+    val server_auto_head_response = Deps("io.ktor", "ktor-server-auto-head-response", ktor_version)
+
+    //Ktor Server Default Headers
+    val server_default_headers = Deps("io.ktor", "ktor-server-default-headers", ktor_version)
+
+    //Ktor Server Caching Headers
+    val server_caching_headers = Deps("io.ktor", "ktor-server-caching-headers", ktor_version)
+
+    //Ktor Server Conditional Headers
+    val server_conditional_headers = Deps("io.ktor", "ktor-server-conditional-headers", ktor_version)
+
+    //Ktor Server Forwarded Headers
+    val server_forwarded_headers = Deps("io.ktor", "ktor-server-forwarded-headers", ktor_version)
+
+    //Ktor Server status pages
+    val server_status_pages = Deps("io.ktor", "ktor-server-status-pages", ktor_version)
 
 }

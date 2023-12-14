@@ -22,10 +22,14 @@ object Springframework {
         Deps("org.springframework.boot", "spring-boot-starter-security", null)
     val spring_boot_starter_actuator =
         Deps("org.springframework.boot", "spring-boot-starter-actuator", null)
+    val spring_boot_starter_cache =
+        Deps("org.springframework.boot", "spring-boot-starter-cache", null)
     val spring_boot_starter_jdbc =
         Deps("org.springframework.boot", "spring-boot-starter-jdbc", null)
     val spring_boot_starter_data_jpa =
         Deps("org.springframework.boot", "spring-boot-starter-data-jpa", null)
+    val spring_boot_starter_validation =
+        Deps("org.springframework.boot", "spring-boot-starter-validation", null)
     val spring_boot_starter_data_redis =
         Deps("org.springframework.boot", "spring-boot-starter-data-redis", null)
 
@@ -61,5 +65,7 @@ object Springframework {
         Deps("org.springframework.security", "spring-security-oauth2-client", null)
     val security_oauth2_resource_server =
         Deps("org.springframework.security", "spring-security-oauth2-resource-server", null)
+    val security_oauth2_authorization_server =
+        Deps("org.springframework.security", "spring-security-oauth2-authorization-server", null)
 
 }

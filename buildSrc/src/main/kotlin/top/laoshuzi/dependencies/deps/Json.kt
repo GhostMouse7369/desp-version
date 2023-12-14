@@ -12,6 +12,7 @@ object Json {
 
     val jackson_annotations = Deps("com.fasterxml.jackson.core", "jackson-annotations", jackson_version)
     val jackson_databind = Deps("com.fasterxml.jackson.core", "jackson-databind", jackson_version)
+    val jackson_datatype_jsr310 = Deps("com.fasterxml.jackson.core", "jackson-datatype-jsr310", jackson_version)
     val jackson_module_kotlin = Deps("com.fasterxml.jackson.module", "jackson-module-kotlin", jackson_version)
 
 
