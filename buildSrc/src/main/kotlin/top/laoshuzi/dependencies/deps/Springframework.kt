@@ -2,13 +2,25 @@ package top.laoshuzi.dependencies.deps
 
 object Springframework {
 
-    val spring_version = "5.4.5"
-    val spring_boot_version = "3.0.0"
-    val spring_cloud_version = "2022.0.0-M5"
-    val spring_dependency_management_version = "1.1.0"
+    val spring_version = "6.1.2"
+    val spring_boot_version = "3.2.1"
+    val spring_cloud_version = "2023.0.0"
+    val spring_dependency_management_version = "1.1.4"
 
+    val spring_core =
+        Deps("org.springframework", "spring-core", null)
     val spring_context =
         Deps("org.springframework", "spring-context", null)
+    val spring_beans =
+        Deps("org.springframework", "spring-beans", null)
+    val spring_aop =
+        Deps("org.springframework", "spring-aop", null)
+    val spring_expression =
+        Deps("org.springframework", "spring-expression", null)
+    val spring_web =
+        Deps("org.springframework", "spring-web", null)
+    val spring_webmvc =
+        Deps("org.springframework", "spring-webmvc", null)
 
     val spring_boot =
         Deps("org.springframework.boot", "spring-boot", null)
@@ -42,6 +54,8 @@ object Springframework {
 
     val data_redis =
         Deps("org.springframework.data", "spring-data-redis", null)
+    val spring_data_commons =
+        Deps("org.springframework.data", "spring-data-commons", null)
 
     val security_test =
         Deps("org.springframework.security", "spring-security-test", null)

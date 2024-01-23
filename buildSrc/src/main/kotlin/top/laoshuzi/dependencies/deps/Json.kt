@@ -2,11 +2,13 @@ package top.laoshuzi.dependencies.deps
 
 object Json {
 
-    val fastjson_version = "1.2.56"
-    val gson_version = "2.10"
-    val jackson_version = "2.12.4"
+    val fastjson_version = "2.0.45"
+    val fastjson2_version = "2.0.46"
+    val gson_version = "2.10.1"
+    val jackson_version = "2.16.1"
 
     val fastjson = Deps("com.alibaba", "fastjson", fastjson_version)
+    val fastjson2 = Deps("com.alibaba.fastjson2", "fastjson2", fastjson2_version)
 
     val gson = Deps("com.google.code.gson", "gson", gson_version)
 

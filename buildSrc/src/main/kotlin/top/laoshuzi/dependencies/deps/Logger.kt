@@ -2,9 +2,9 @@ package top.laoshuzi.dependencies.deps
 
 object Logger {
 
-    val logback_version = "1.2.3"
-    val slf4j_version = "1.7.25"
-    val log4j_version = "2.14.0"
+    val logback_version = "1.4.14"
+    val slf4j_version = "2.0.11"
+    val log4j_version = "2.22.1"
 
 
     val logback_core = Deps("ch.qos.logback", "logback-core", logback_version)
