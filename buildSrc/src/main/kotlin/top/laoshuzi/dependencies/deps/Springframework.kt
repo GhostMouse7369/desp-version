@@ -28,6 +28,8 @@ object Springframework {
         Deps("org.springframework.boot", "spring-boot-starter", null)
     val spring_boot_starter_test =
         Deps("org.springframework.boot", "spring-boot-starter-test", null)
+    val spring_boot_starter_tomcat =
+        Deps("org.springframework.boot", "spring-boot-starter-tomcat", null)
     val spring_boot_starter_web =
         Deps("org.springframework.boot", "spring-boot-starter-web", null)
     val spring_boot_starter_security =

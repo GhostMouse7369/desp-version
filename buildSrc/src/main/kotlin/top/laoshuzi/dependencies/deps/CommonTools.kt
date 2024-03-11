@@ -9,7 +9,7 @@ object CommonTools {
     val lombok_version = "1.18.4"
     val mapstruct_version = "1.5.5.Final"
 
-    val hutool_version = "5.8.18"
+    val hutool_version = "5.8.26"
 
 
     val commons_lang = Deps("org.apache.commons", "commons-lang3", commons_lang_version)
