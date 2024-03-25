@@ -1,6 +1,5 @@
-import top.laoshuzi.dependencies.config.AndroidBuildConfig
 import top.laoshuzi.dependencies.deps.*
-import java.util.Properties
+import java.util.*
 import java.io.FileInputStream
 
 plugins {
@@ -8,6 +7,15 @@ plugins {
     kotlin("android")
     kotlin("kapt")
 }
+
+val application_id: String by project
+val version_code: String by project
+val version_name: String by project
+val min_sdk_version: String by project
+val target_sdk_version: String by project
+val test_instrumentation_runner: String by project
+val consumer_pro_file: String by project
+val proguard_pro_file: String by project
 
 val keystoreProperties = Properties().apply {
     load(FileInputStream(rootProject.file("keystore.properties")))
@@ -21,17 +29,17 @@ kapt {
 
 android {
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_18
+        targetCompatibility = JavaVersion.VERSION_18
     }
-    compileSdk = AndroidBuildConfig.target_sdk
+    compileSdk = target_sdk_version.toInt()
     defaultConfig {
-        applicationId = AndroidBuildConfig.application_id
-        minSdk = AndroidBuildConfig.min_sdk
-        targetSdk = AndroidBuildConfig.target_sdk
-        versionCode = AndroidBuildConfig.version_code
-        versionName = AndroidBuildConfig.version_name
-        testInstrumentationRunner = AndroidBuildConfig.test_instrumentation_runner
+        applicationId = application_id
+        versionCode = version_code.toInt()
+        versionName = version_name
+        minSdk = min_sdk_version.toInt()
+        targetSdk = target_sdk_version.toInt()
+        testInstrumentationRunner = test_instrumentation_runner
         multiDexEnabled = true
 //        ndk {
 //            abiFilters.addAll(mutableSetOf("armeabi", "armeabi-v7a", "armeabi-v8a", "x86"))
@@ -59,23 +67,19 @@ android {
             isDebuggable = false
             isMinifyEnabled = false
             signingConfig = signingConfigs.getByName("release")
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), AndroidBuildConfig.proguard_file
-            )
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), proguard_pro_file)
         }
         getByName("debug") {
             isDebuggable = true
             signingConfig = signingConfigs.getByName("release")
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), AndroidBuildConfig.proguard_file
-            )
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), proguard_pro_file)
         }
     }
     flavorDimensions += "version"
     productFlavors {
         create("dev") {
             dimension = "version"
-            applicationId = "${AndroidBuildConfig.application_id}.test"
+            applicationId = "${application_id}.test"
             manifestPlaceholders["app_name"] = "版本依赖-测试"
             resValue("string", "api_base_url", "http://www.qncxin.com")
         }

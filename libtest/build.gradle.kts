@@ -1,4 +1,3 @@
-import top.laoshuzi.dependencies.config.AndroidBuildConfig
 import top.laoshuzi.dependencies.deps.*
 import top.laoshuzi.dependencies.publish.MavenPublish.mavenAndroidPublication
 import top.laoshuzi.dependencies.publish.MavenPublish.mavenRepository
@@ -17,24 +16,30 @@ val ziweiRepositoryDomainName: String by project
 val ziweiRepositoryUsername: String by project
 val ziweiRepositoryPassword: String by project
 
+val application_id: String by project
+val version_code: String by project
+val version_name: String by project
+val min_sdk_version: String by project
+val target_sdk_version: String by project
+val test_instrumentation_runner: String by project
+val consumer_pro_file: String by project
+val proguard_pro_file: String by project
+
 android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    compileSdk = AndroidBuildConfig.target_sdk
+    compileSdk = target_sdk_version.toInt()
     defaultConfig {
-        minSdk = AndroidBuildConfig.min_sdk
-        testInstrumentationRunner = AndroidBuildConfig.test_instrumentation_runner
-        consumerProguardFiles(AndroidBuildConfig.consumer_file)
+        minSdk = min_sdk_version.toInt()
+        testInstrumentationRunner = test_instrumentation_runner
+        consumerProguardFiles(consumer_pro_file)
     }
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                AndroidBuildConfig.proguard_file
-            )
+            proguardFiles(proguard_pro_file)
         }
     }
 }
